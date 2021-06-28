@@ -31,6 +31,9 @@ public class Autor {
     
     @NotNull
     private LocalDateTime dataCriacao = LocalDateTime.now();
+    
+    @Deprecated
+    public Autor() {}
 	
 	
 	public Autor(@NotBlank String nome, @NotBlank @Email String email, @NotBlank @Size(max = 400) String descricao) {
