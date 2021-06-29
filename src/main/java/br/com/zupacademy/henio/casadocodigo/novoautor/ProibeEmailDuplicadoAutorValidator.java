@@ -28,7 +28,7 @@ public class ProibeEmailDuplicadoAutorValidator implements Validator{
 		Optional <Autor> possivelAutor = autorRepository.findByEmail(request.getEmail());
 		
 		if(possivelAutor.isPresent()) {
-			errors.rejectValue("email", null, "Já existe um(a) outro(a) autor(a) com o mesmo email "
+			errors.rejectValue("email", null, "Já existe um(a) outro(a) autor(a) com o mesmo email: "
 					+ request.getEmail());
 		}
 	}
