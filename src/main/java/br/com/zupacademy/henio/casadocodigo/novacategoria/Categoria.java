@@ -12,7 +12,7 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@NotBlank
 	@Column(unique = true)
@@ -26,8 +26,6 @@ public class Categoria {
 	public Categoria() {
 		super();
 	}
-
-
 
 	@Override
 	public String toString() {

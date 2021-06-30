@@ -1,12 +1,11 @@
 package br.com.zupacademy.henio.casadocodigo.novoautor;
 
-import java.time.LocalDateTime;
+import br.com.zupacademy.henio.casadocodigo.novolivro.Livro;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,7 +16,7 @@ public class Autor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@NotBlank
 	@Column(unique = true)
@@ -33,7 +32,7 @@ public class Autor {
     
     @NotNull
     private LocalDateTime dataCriacao = LocalDateTime.now();
-    
+
     @Deprecated
     public Autor() {}
 	

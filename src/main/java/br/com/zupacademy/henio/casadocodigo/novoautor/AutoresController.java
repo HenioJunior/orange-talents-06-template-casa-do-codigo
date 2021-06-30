@@ -20,8 +20,10 @@ public class AutoresController {
 	@PostMapping
 	@Transactional
 	public String criar(@RequestBody @Valid NovoAutorRequest request) {
+
 		Autor autor = request.toModel();
 		manager.persist(autor);
+
 		return autor.toString();
 	}	
 }

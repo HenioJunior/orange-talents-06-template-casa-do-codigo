@@ -22,8 +22,9 @@ public class CategoriasController {
 	@Transactional
 	public String criar(@RequestBody @Valid NovaCategoriaRequest request) {
 		
-		Categoria novaCategoria = new Categoria(request.getNome());
-		manager.persist(novaCategoria);
-		return novaCategoria.toString();
+		Categoria categoria = new Categoria(request.getNome());
+		manager.persist(categoria);
+
+		return categoria.toString();
 	}
 }
