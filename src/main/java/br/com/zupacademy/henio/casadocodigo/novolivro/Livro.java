@@ -10,48 +10,53 @@ import java.time.LocalDate;
 @Entity
 public class Livro {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String titulo;
-    private String resumo;
-    private String sumario;
-    private BigDecimal preco;
-    private Integer numeroDePaginas;
-    private String isbn;
-    private LocalDate dataDePublicacao;
+	public Livro() {
+		super();
+	}
 
-    @ManyToOne
-    private Autor autor;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String titulo;
+	private String resumo;
+	private String sumario;
+	private BigDecimal preco;
+	private Integer numeroDePaginas;
+	private String isbn;
+	private LocalDate dataDePublicacao;
 
-    @ManyToOne
-    private Categoria categoria;
+	@ManyToOne
+	private Autor autor;
 
-    public Livro(String titulo, String resumo, String sumario, BigDecimal preco, Integer numeroDePaginas, String isbn, LocalDate dataDePublicacao, Autor autor, Categoria categoria) {
-        this.titulo = titulo;
-        this.resumo = resumo;
-        this.sumario = sumario;
-        this.preco = preco;
-        this.numeroDePaginas = numeroDePaginas;
-        this.isbn = isbn;
-        this.dataDePublicacao = dataDePublicacao;
-        this.autor = autor;
-        this.categoria = categoria;
-    }
+	@ManyToOne
+	private Categoria categoria;
 
-    @Override
-    public String toString() {
-        return "Livro{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", resumo='" + resumo + '\'' +
-                ", sumario='" + sumario + '\'' +
-                ", preco=" + preco +
-                ", numeroDePaginas=" + numeroDePaginas +
-                ", isbn='" + isbn + '\'' +
-                ", dataDePublicacao=" + dataDePublicacao +
-                ", autor=" + autor +
-                ", categoria=" + categoria +
-                '}';
-    }
+	public Livro(String titulo, String resumo, String sumario, BigDecimal preco, Integer numeroDePaginas, String isbn,
+			LocalDate dataDePublicacao, Autor autor, Categoria categoria) {
+		this.titulo = titulo;
+		this.resumo = resumo;
+		this.sumario = sumario;
+		this.preco = preco;
+		this.numeroDePaginas = numeroDePaginas;
+		this.isbn = isbn;
+		this.dataDePublicacao = dataDePublicacao;
+		this.autor = autor;
+		this.categoria = categoria;
+	}
+		
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Livro{" + "id=" + id + ", titulo='" + titulo + '\'' + ", resumo='" + resumo + '\'' + ", sumario='"
+				+ sumario + '\'' + ", preco=" + preco + ", numeroDePaginas=" + numeroDePaginas + ", isbn='" + isbn
+				+ '\'' + ", dataDePublicacao=" + dataDePublicacao + ", autor=" + autor + ", categoria=" + categoria
+				+ '}';
+	}
 }

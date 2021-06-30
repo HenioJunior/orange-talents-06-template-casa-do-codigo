@@ -49,4 +49,6 @@ public class Autor {
 		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao + ", dataCriacao="
 				+ dataCriacao + "]";
 	}
+	
+	
 }
