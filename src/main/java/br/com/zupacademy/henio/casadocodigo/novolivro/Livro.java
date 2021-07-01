@@ -10,8 +10,8 @@ import java.time.LocalDate;
 @Entity
 public class Livro {
 
+	@Deprecated
 	public Livro() {
-		super();
 	}
 
 	@Id
@@ -43,13 +43,41 @@ public class Livro {
 		this.autor = autor;
 		this.categoria = categoria;
 	}
-		
+				
+	public Long getId() {
+		return id;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+		
+	public String getResumo() {
+		return resumo;
+	}
 
-	public Long getId() {
-		return id;
+	public String getSumario() {
+		return sumario;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public Integer getNumeroDePaginas() {
+		return numeroDePaginas;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+		
+	public LocalDate getDataDePublicacao() {
+		return dataDePublicacao;
 	}
 
 	@Override

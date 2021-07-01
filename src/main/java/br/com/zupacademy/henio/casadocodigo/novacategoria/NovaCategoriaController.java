@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/categorias")
-public class CategoriasController {
+public class NovaCategoriaController {
 	
 	
 	@PersistenceContext
