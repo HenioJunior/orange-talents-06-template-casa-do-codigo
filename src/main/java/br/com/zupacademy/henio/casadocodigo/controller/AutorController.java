@@ -1,5 +1,7 @@
 package br.com.zupacademy.henio.casadocodigo.controller;
 
+import java.net.URI;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.zupacademy.henio.casadocodigo.dto.request.AutorRequest;
+import br.com.zupacademy.henio.casadocodigo.dto.response.AutorResponse;
 import br.com.zupacademy.henio.casadocodigo.modelo.Autor;
 
 @RestController
@@ -23,11 +27,12 @@ public class AutorController {
 			
 	@PostMapping
 	@Transactional
-	public ResponseEntity<String> criar(@RequestBody @Valid AutorRequest request) {
+	public ResponseEntity<AutorResponse> criar(@RequestBody @Valid AutorRequest request, UriComponentsBuilder uriBuilder) {
 
 		Autor autor = request.toModel();
 		manager.persist(autor);
 
-		return ResponseEntity.ok().body(request.toString());
+		URI uri = uriBuilder.path("/paises/{id}").buildAndExpand(autor.getId()).toUri();
+		return ResponseEntity.created(uri).body(new AutorResponse(autor));
 	}	
 }

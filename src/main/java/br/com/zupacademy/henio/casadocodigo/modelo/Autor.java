@@ -20,11 +20,11 @@ public class Autor {
 	private Long id;
 	
 	@NotBlank
-	@Column(unique = true)
-    private String nome;
+	private String nome;
     
 	@NotBlank
     @Email
+    @Column(unique = true)
     private String email;
     
     @NotBlank
@@ -41,6 +41,10 @@ public class Autor {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getNome() {

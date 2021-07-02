@@ -31,9 +31,5 @@ public class AutorRequest {
     public Autor toModel() {
 		return new Autor(this.nome, this.email, this.descricao);
 	}
-    
-    @Override
-	public String toString() {
-		return "Autor cadastrado: [nome=" + nome + ", email=" + email + ", descricao=" + descricao + "] ";
-	}
+   
 }

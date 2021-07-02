@@ -21,5 +21,4 @@ public class CategoriaRequest {
 	public String getNome() {
 		return nome;
 	}
-
 }

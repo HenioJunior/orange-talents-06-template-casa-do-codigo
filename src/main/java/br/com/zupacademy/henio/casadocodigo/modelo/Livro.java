@@ -14,11 +14,13 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private String titulo;
 	private String resumo;
 	private String sumario;
 	private BigDecimal preco;
 	private Integer numeroDePaginas;
+	@Column(unique = true)
 	private String isbn;
 	private LocalDate dataDePublicacao;
 
