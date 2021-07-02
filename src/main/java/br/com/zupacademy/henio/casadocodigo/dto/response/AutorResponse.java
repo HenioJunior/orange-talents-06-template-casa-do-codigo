@@ -1,13 +1,13 @@
-package br.com.zupacademy.henio.casadocodigo.detalhelivro;
+package br.com.zupacademy.henio.casadocodigo.dto.response;
 
-import br.com.zupacademy.henio.casadocodigo.novoautor.Autor;
+import br.com.zupacademy.henio.casadocodigo.modelo.Autor;
 
-public class DetalheAutorResponse {
+public class AutorResponse {
 	
 	private String autor;
 	private String descricao;
 
-	public DetalheAutorResponse(Autor entidade) {
+	public AutorResponse(Autor entidade) {
 		autor = entidade.getNome();
 		descricao = entidade.getDescricao();
 	}

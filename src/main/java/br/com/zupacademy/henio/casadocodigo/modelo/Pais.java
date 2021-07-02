@@ -1,4 +1,4 @@
-package br.com.zupacademy.henio.casadocodigo.novacategoria;
+package br.com.zupacademy.henio.casadocodigo.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Categoria {
-	
+public class Pais {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -17,18 +17,12 @@ public class Categoria {
 	@NotBlank
 	@Column(unique = true)
 	private String nome;
-			
-	public Categoria(@NotBlank String nome) {
-		super();
-		this.nome = nome;
-	}
 		
-	public Categoria() {
-		super();
+	public Pais() {
 	}
 
-	@Override
-	public String toString() {
-		return "Categoria [id=" + id + ", nome=" + nome + "]";
+	public Pais(@NotBlank String nome) {
+		this.nome = nome;
 	}
+	
 }

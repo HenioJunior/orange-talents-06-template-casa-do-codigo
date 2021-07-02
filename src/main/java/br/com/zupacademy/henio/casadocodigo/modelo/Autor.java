@@ -1,4 +1,4 @@
-package br.com.zupacademy.henio.casadocodigo.novoautor;
+package br.com.zupacademy.henio.casadocodigo.modelo;
 
 import java.time.LocalDateTime;
 
@@ -42,19 +42,13 @@ public class Autor {
 		this.email = email;
 		this.descricao = descricao;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-		
+	
 	public String getDescricao() {
 		return descricao;
 	}
 
-	@Override
-	public String toString() {
-		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao + ", dataCriacao="
-				+ dataCriacao + "]";
-	}
-	
 }

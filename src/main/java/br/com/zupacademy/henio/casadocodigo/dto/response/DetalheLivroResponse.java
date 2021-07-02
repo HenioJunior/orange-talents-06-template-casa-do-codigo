@@ -1,13 +1,13 @@
-package br.com.zupacademy.henio.casadocodigo.detalhelivro;
+package br.com.zupacademy.henio.casadocodigo.dto.response;
 
 import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
 
-import br.com.zupacademy.henio.casadocodigo.novolivro.Livro;
+import br.com.zupacademy.henio.casadocodigo.modelo.Livro;
 
 public class DetalheLivroResponse {
 
-	private DetalheAutorResponse autor;
+	private AutorResponse autor;
 	private String titulo;
 	private String resumo;
 	private String sumario;
@@ -18,7 +18,7 @@ public class DetalheLivroResponse {
 
 	public DetalheLivroResponse(Livro entidade) {
 		titulo = entidade.getTitulo();
-		autor = new DetalheAutorResponse(entidade.getAutor());
+		autor = new AutorResponse(entidade.getAutor());
 		isbn = entidade.getIsbn();
 		numeroDePaginas = entidade.getNumeroDePaginas();
 		resumo = entidade.getResumo();
@@ -28,7 +28,7 @@ public class DetalheLivroResponse {
 				.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
 		
-	public DetalheAutorResponse getAutor() {
+	public AutorResponse getAutor() {
 		return autor;
 	}
 

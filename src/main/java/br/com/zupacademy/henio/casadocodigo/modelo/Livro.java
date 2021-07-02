@@ -1,7 +1,4 @@
-package br.com.zupacademy.henio.casadocodigo.novolivro;
-
-import br.com.zupacademy.henio.casadocodigo.novacategoria.Categoria;
-import br.com.zupacademy.henio.casadocodigo.novoautor.Autor;
+package br.com.zupacademy.henio.casadocodigo.modelo;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -43,15 +40,15 @@ public class Livro {
 		this.autor = autor;
 		this.categoria = categoria;
 	}
-				
-	public Long getId() {
-		return id;
-	}
 
 	public String getTitulo() {
 		return titulo;
 	}
 		
+	public Autor getAutor() {
+		return autor;
+	}
+
 	public String getResumo() {
 		return resumo;
 	}
@@ -72,19 +69,8 @@ public class Livro {
 		return isbn;
 	}
 
-	public Autor getAutor() {
-		return autor;
-	}
-		
 	public LocalDate getDataDePublicacao() {
 		return dataDePublicacao;
 	}
-
-	@Override
-	public String toString() {
-		return "Livro{" + "id=" + id + ", titulo='" + titulo + '\'' + ", resumo='" + resumo + '\'' + ", sumario='"
-				+ sumario + '\'' + ", preco=" + preco + ", numeroDePaginas=" + numeroDePaginas + ", isbn='" + isbn
-				+ '\'' + ", dataDePublicacao=" + dataDePublicacao + ", autor=" + autor + ", categoria=" + categoria
-				+ '}';
-	}
+	
 }

@@ -1,4 +1,4 @@
-package br.com.zupacademy.henio.casadocodigo.detalhelivro;
+package br.com.zupacademy.henio.casadocodigo.dto.response;
 
 public class ListarLivrosResponse {
 	
