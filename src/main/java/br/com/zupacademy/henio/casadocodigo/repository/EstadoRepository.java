@@ -1,6 +1,7 @@
 package br.com.zupacademy.henio.casadocodigo.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.constraints.NotBlank;
 
@@ -20,4 +21,6 @@ public interface EstadoRepository extends JpaRepository<Estado, Long> {
 
 	public Estado findByNome(@NotBlank String estado);
 
+
+	Optional<Estado> findByNomeAndPaisId(String nome, long paisId);
 }

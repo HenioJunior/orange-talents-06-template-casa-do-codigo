@@ -9,7 +9,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 
-@Table(name="estado", uniqueConstraints = {@UniqueConstraint(columnNames={"nome", "pais_id"})} )
 @Entity
 public class Estado {
 	
@@ -25,21 +24,17 @@ public class Estado {
 	public Estado() {
 	}
 
-	public Estado(String nome, @NotBlank Pais pais) {
+	public Estado(String nome, Pais pais) {
 		this.nome = nome;
 		this.pais = pais;
 	}
-		
-	public Estado(@NotBlank String nome) {
+
+	public Estado(String nome) {
 		this.nome = nome;
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -49,4 +44,5 @@ public class Estado {
 	public Pais getPais() {
 		return pais;
 	}
+
 }

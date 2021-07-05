@@ -1,7 +1,10 @@
 package br.com.zupacademy.henio.casadocodigo.controller;
 
 import java.net.URI;
+import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -17,23 +20,26 @@ import br.com.zupacademy.henio.casadocodigo.dto.request.EstadoRequest;
 import br.com.zupacademy.henio.casadocodigo.dto.response.EstadoResponse;
 import br.com.zupacademy.henio.casadocodigo.modelo.Estado;
 import br.com.zupacademy.henio.casadocodigo.repository.EstadoRepository;
-import br.com.zupacademy.henio.casadocodigo.repository.PaisRepository;
 
 @RequestMapping(value = "/estados")
 @RestController
 public class EstadoController {
-		
+
 	@Autowired
 	EstadoRepository estadoRepository;
-	
-	@Autowired
-	PaisRepository paisRepository;
+
+	@PersistenceContext
+	EntityManager manager;
 	
 	@Transactional
 	@PostMapping
-	public ResponseEntity<EstadoResponse> criar(@RequestBody @Valid EstadoRequest request, UriComponentsBuilder uriBuilder) {
-		
-		Estado estado = request.toModel(paisRepository);
+	public ResponseEntity<?> criar(@RequestBody @Valid EstadoRequest request, UriComponentsBuilder uriBuilder) {
+
+		Optional<Estado> estadoSearch = estadoRepository.findByNomeAndPaisId(request.getNome(), request.getPaisId());
+		if (estadoSearch.isPresent()) {
+			return ResponseEntity.badRequest().body("O País já foi cadastrado para este estado.");
+		}		
+		Estado estado = request.toModel(manager);
 		estadoRepository.save(estado);
 				
 		URI uri = uriBuilder.path("/estados/{id}").buildAndExpand(estado.getId()).toUri();
