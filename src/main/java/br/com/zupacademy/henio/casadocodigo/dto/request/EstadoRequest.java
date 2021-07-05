@@ -6,12 +6,8 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import br.com.zupacademy.henio.casadocodigo.modelo.Estado;
 import br.com.zupacademy.henio.casadocodigo.modelo.Pais;
-import br.com.zupacademy.henio.casadocodigo.repository.EstadoRepository;
-import br.com.zupacademy.henio.casadocodigo.repository.PaisRepository;
 
 public class EstadoRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
