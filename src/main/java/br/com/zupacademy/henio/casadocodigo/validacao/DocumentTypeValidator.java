@@ -6,10 +6,10 @@ import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import br.com.zupacademy.henio.casadocodigo.controller.exceptions.FieldMessage;
 import br.com.zupacademy.henio.casadocodigo.dto.request.ClienteRequest;
 import br.com.zupacademy.henio.casadocodigo.modelo.enums.TipoCliente;
 import br.com.zupacademy.henio.casadocodigo.validacao.utils.DocumentoBrasil;
-import br.com.zupacademy.henio.casadocodigo.validacao.utils.FieldMessage;
 
 public class DocumentTypeValidator implements ConstraintValidator<DocumentType, ClienteRequest> {
 

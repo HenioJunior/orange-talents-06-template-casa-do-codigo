@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "tb_livro")
 public class Livro {
 
 	@Deprecated

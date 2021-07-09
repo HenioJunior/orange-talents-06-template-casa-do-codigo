@@ -10,6 +10,4 @@ public interface PaisRepository extends JpaRepository<Pais, Long>{
 	
 	public List<Pais> findAllByOrderByNome();
 
-	public Pais findByNome(String nomePais);
-
 }

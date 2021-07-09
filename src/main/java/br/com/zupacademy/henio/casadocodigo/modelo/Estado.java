@@ -1,12 +1,9 @@
 package br.com.zupacademy.henio.casadocodigo.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tb_estado")
 public class Estado {
 	
 	@Id

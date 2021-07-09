@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import br.com.zupacademy.henio.casadocodigo.modelo.Autor;
 import br.com.zupacademy.henio.casadocodigo.modelo.Categoria;
 import br.com.zupacademy.henio.casadocodigo.modelo.Livro;
-import br.com.zupacademy.henio.casadocodigo.validacao.ExistId;
 import br.com.zupacademy.henio.casadocodigo.validacao.UniqueValue;
 
 public class LivroRequest {
@@ -51,11 +50,9 @@ public class LivroRequest {
     private LocalDate dataDePublicacao;
 
     @NotNull
-    @ExistId(domainClass = Autor.class, fieldName = "id")
     private long idAutor;
 
     @NotNull
-    @ExistId(domainClass = Categoria.class, fieldName = "id")
     private long idCategoria;
 
     @JsonCreator

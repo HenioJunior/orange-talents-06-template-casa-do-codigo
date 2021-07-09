@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import br.com.zupacademy.henio.casadocodigo.repository.PaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,21 +29,16 @@ public class EstadoController {
 	@Autowired
 	EstadoRepository estadoRepository;
 
-	@PersistenceContext
-	EntityManager manager;
-	
+	@Autowired
+	PaisRepository paisRepository;
+
 	@Transactional
 	@PostMapping
-	public ResponseEntity<?> criar(@RequestBody @Valid EstadoRequest request, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<?> criar(@RequestBody @Valid EstadoRequest request) {
 
-		Optional<Estado> estadoSearch = estadoRepository.findByNomeAndPaisId(request.getNome(), request.getPaisId());
-		if (estadoSearch.isPresent()) {
-			return ResponseEntity.badRequest().body("O País já foi cadastrado para este estado.");
-		}		
-		Estado estado = request.toModel(manager);
+		Estado estado = request.toModel(paisRepository);
 		estadoRepository.save(estado);
-				
-		URI uri = uriBuilder.path("/estados/{id}").buildAndExpand(estado.getId()).toUri();
-		return ResponseEntity.created(uri).body(new EstadoResponse(estado));
+
+		return ResponseEntity.ok().body("O estado foi cadastrado");
 	}	
 }
