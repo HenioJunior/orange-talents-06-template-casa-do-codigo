@@ -17,6 +17,6 @@ public interface EstadoRepository extends JpaRepository<Estado, Long> {
 	public List<Estado> findByEstado(@Param("idPais") Long idPais);
 
 	public Optional<Estado> findByNome(@NotBlank String estado);
-
+	
 	Optional<Estado> findByNomeAndPaisId(String nome, long paisId);
 }
