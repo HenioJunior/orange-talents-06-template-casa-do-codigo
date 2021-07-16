@@ -1,5 +1,11 @@
 package br.com.zupacademy.henio.casadocodigo.dto.request;
 
+import java.util.Optional;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import br.com.zupacademy.henio.casadocodigo.exceptions.EntityNotFoundException;
 import br.com.zupacademy.henio.casadocodigo.modelo.Cliente;
 import br.com.zupacademy.henio.casadocodigo.modelo.Estado;
@@ -8,13 +14,6 @@ import br.com.zupacademy.henio.casadocodigo.repository.EstadoRepository;
 import br.com.zupacademy.henio.casadocodigo.repository.PaisRepository;
 import br.com.zupacademy.henio.casadocodigo.validacao.DocumentType;
 import br.com.zupacademy.henio.casadocodigo.validacao.UniqueValue;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.Optional;
 
 @DocumentType
 public class ClienteRequest {

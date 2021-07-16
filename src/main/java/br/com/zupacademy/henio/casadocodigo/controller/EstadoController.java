@@ -38,15 +38,13 @@ public class EstadoController {
 
 			return request.toString();
 		}
-		return "O estado já existe neste pais";
+		return "O estado já existe para este país.";
 	}
 
 	private boolean verificaQueNaoExisteOEstadoNoPais(EstadoRequest request) {
 		Optional<Estado> estado = estadoRepository.findByNomeAndPaisId(request.getNomeEstado(), request.getPaisId());
 		if (estado.isPresent()) {
-			System.out.println("O estado já existe neste pais");
 			return false;
-			
 		}
 		return true;
 	}
