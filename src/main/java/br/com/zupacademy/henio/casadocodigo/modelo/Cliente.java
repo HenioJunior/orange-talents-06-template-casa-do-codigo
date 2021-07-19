@@ -16,7 +16,6 @@ public class Cliente implements Serializable {
     private String sobrenome;
     @Column(unique = true)
     private String documento;
-    private Integer tipoDocumento;
     @Column(unique = true)
     private String email;
     private String endereco;
@@ -34,12 +33,11 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 
-	public Cliente(String nome, String sobrenome, String documento, Integer tipoDocumento, String email,
+	public Cliente(String nome, String sobrenome, String documento, String email,
 			String endereco, String complemento, String cidade, Estado estado, Pais pais, String telefone, String cep) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.documento = documento;
-		this.tipoDocumento = tipoDocumento;
 		this.email = email;
 		this.endereco = endereco;
 		this.complemento = complemento;
@@ -64,10 +62,6 @@ public class Cliente implements Serializable {
 
 	public String getDocumento() {
 		return documento;
-	}
-
-	public Integer getTipoDocumento() {
-		return tipoDocumento;
 	}
 
 	public String getEmail() {

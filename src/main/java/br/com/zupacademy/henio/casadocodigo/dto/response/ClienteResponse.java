@@ -8,7 +8,6 @@ public class ClienteResponse {
 	private String nome;
 	private String sobrenome;
 	private String documento;
-	private Integer tipoDocumento;
 	private String email;
 	private String endereco;
 	private String complemento;
@@ -25,7 +24,6 @@ public class ClienteResponse {
 		this.nome = cliente.getNome();
 		this.sobrenome = cliente.getSobrenome();
 		this.documento = cliente.getDocumento();
-		this.tipoDocumento = cliente.getTipoDocumento();
 		this.email = cliente.getEmail();
 		this.endereco = cliente.getEndereco();
 		this.complemento = cliente.getComplemento();
@@ -47,9 +45,6 @@ public class ClienteResponse {
 	}
 	public String getDocumento() {
 		return documento;
-	}
-	public Integer getTipoDocumento() {
-		return tipoDocumento;
 	}
 	public String getEmail() {
 		return email;

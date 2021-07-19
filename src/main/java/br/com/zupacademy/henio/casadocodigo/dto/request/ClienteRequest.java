@@ -12,10 +12,9 @@ import br.com.zupacademy.henio.casadocodigo.modelo.Estado;
 import br.com.zupacademy.henio.casadocodigo.modelo.Pais;
 import br.com.zupacademy.henio.casadocodigo.repository.EstadoRepository;
 import br.com.zupacademy.henio.casadocodigo.repository.PaisRepository;
-import br.com.zupacademy.henio.casadocodigo.validacao.DocumentType;
+import br.com.zupacademy.henio.casadocodigo.validacao.CPFOrCNPJ;
 import br.com.zupacademy.henio.casadocodigo.validacao.UniqueValue;
 
-@DocumentType
 public class ClienteRequest {
 
 	@NotBlank
@@ -24,8 +23,8 @@ public class ClienteRequest {
 	private String sobrenome;
 	@NotBlank
 	@UniqueValue(domainClass = Cliente.class, fieldName = "documento")
+	@CPFOrCNPJ
 	private String documento;
-	private Integer tipoDocumento;
 	@Email
 	@NotBlank
 	@UniqueValue(domainClass = Cliente.class, fieldName = "email")
@@ -44,14 +43,14 @@ public class ClienteRequest {
 	private String telefone;
 	@NotBlank
 	private String cep;
-
-	public ClienteRequest(String nome, String sobrenome, String documento, Integer tipoDocumento, String email,
-						  String endereco, String complemento, String cidade, String estado, long idPais,
-						  String telefone, String cep) {
+		
+	public ClienteRequest(@NotBlank String nome, @NotBlank String sobrenome, @NotBlank String documento,
+			@Email @NotBlank String email, @NotBlank String endereco, @NotBlank String complemento,
+			@NotBlank String cidade, @NotBlank String estado, @NotNull long idPais, @NotBlank String telefone,
+			@NotBlank String cep) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.documento = documento;
-		this.tipoDocumento = tipoDocumento;
 		this.email = email;
 		this.endereco = endereco;
 		this.complemento = complemento;
@@ -62,10 +61,6 @@ public class ClienteRequest {
 		this.cep = cep;
 	}
 
-	public Integer getTipoDocumento() {
-		return tipoDocumento;
-	}
-	
 	public String getDocumento() {
 		return documento;
 	}
@@ -76,6 +71,6 @@ public class ClienteRequest {
 
 		Optional<Pais> objPais = paisRepository.findById(this.idPais);
 		Pais pais = objPais.orElseThrow(() -> new EntityNotFoundException("Id do pais não encontrado."));
-		return new Cliente(nome, sobrenome, documento, tipoDocumento, email, endereco, complemento, cidade, estado, pais, telefone, cep);
+		return new Cliente(nome, sobrenome, documento, email, endereco, complemento, cidade, estado, pais, telefone, cep);
 	}
 }
